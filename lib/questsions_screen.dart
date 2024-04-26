@@ -3,6 +3,7 @@ import 'package:udemy_flutter_basic2/answer_button.dart';
 import 'package:udemy_flutter_basic2/data/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//màn hình danh sách câu hỏi
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key, required this.onSelectAnswer});
 
@@ -48,7 +49,7 @@ class _QuestionScreen extends State<QuestionsScreen> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            ...currentQuestion.getShuffledAnswers().map((answer) {
+            ...currentQuestion.shuffledAnswers.map((answer) {
               return AnswerButton(
                   answerText: answer,
                   onTap: (() {

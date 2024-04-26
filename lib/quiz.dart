@@ -48,6 +48,13 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void resetScreen() {
+    setState(() {
+      selecetAnswer = [];
+      activeScreen = 'start_screen';
+    });
+  }
+
   @override
   Widget build(context) {
     //mặc định hiểm thị lúc đầu là màn hình start
@@ -61,7 +68,10 @@ class _QuizState extends State<Quiz> {
 
     //chuyển qua màn hình KQ
     if (activeScreen == 'results_screen') {
-      startScreen = ResultsScreen(chosenAnswers: selecetAnswer);
+      startScreen = ResultsScreen(
+        chosenAnswers: selecetAnswer,
+        resetScreen: resetScreen,
+      );
     }
 
     return MaterialApp(
@@ -73,9 +83,6 @@ class _QuizState extends State<Quiz> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight),
           ),
-          // child: activeScreen == 'start-screen'
-          //     ? StartScreen(switchScreen)
-          //     : const QuestionsScreen(),
           child: startScreen,
         ),
       ),
