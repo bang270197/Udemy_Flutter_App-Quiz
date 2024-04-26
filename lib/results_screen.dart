@@ -15,7 +15,7 @@ class ResultsScreen extends StatelessWidget {
 
   //danh sách lưu thông tin kết quả và câu hỏi tương ứng
 
-  List<Map<String, Object>> get summaryData() {
+  List<Map<String, Object>> get summaryData {
     final List<Map<String, Object>> summary = [];
     for (var i = 0; i < chosenAnswers.length; i++) {
       summary.add({
@@ -35,9 +35,9 @@ class ResultsScreen extends StatelessWidget {
     //tổng số câu hỏi
     final numTotalQuestions = questions.length;
     //lất tổng số câu trả lời đúng
-    final numCorrectQuestions = summaryData.where((data) => 
-       data['user_answer'] == data['corrent_answer']
-    ).length;
+    final numCorrectQuestions = summaryData
+        .where((data) => data['user_answer'] == data['corrent_answer'])
+        .length;
 
     return SizedBox(
       width: double.infinity,
